@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>API Access from Web Server</title>
+
+	<script>
+		
+		function myfunction()
+		{
+			const xmlhttp = new XMLHttpRequest();
+			xmlhttp.open("GET","https://dog.ceo/api/breeds/image/random");
+			xmlhttp.send();
+
+			xmlhttp.onload = function(){
+				const myobject = JSON.parse(this.responseText);
+				document.getElementById("image").src = myobject.message;
+			}
+		}
+		
+
+	</script>
+
+</head>
+<body>
+
+<img src="placeholder.png" id="image" width="250px" height="250px">
+
+<p><button onclick="myfunction()">Click Me</button></p>	
+
+</body>
+</html>
